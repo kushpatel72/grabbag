@@ -8,7 +8,12 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
   has_one :profile, :dependent => :destroy
-  
-  after_save :build_profile
+  after_save :make_profile
+    
+  protected
+    
+    def make_profile
+      self.create_profile
+    end  
     
 end
