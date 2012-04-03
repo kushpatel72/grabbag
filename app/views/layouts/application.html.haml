@@ -1,0 +1,13 @@
+!!!
+%html
+  %head
+    %title Grabbag
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    %div
+      - flash.each do |k,v|
+        %div{:class => "alert alert-#{k}"}
+          %p= v
+    = yield
