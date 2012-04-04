@@ -8,8 +8,6 @@ describe User do
  
   it { @user.should be_valid }
   
-  # Devise validates email and password fields
-  
   describe "when first_name is not present" do
     before { @user.first_name = " " }
     it { @user.should_not be_valid }

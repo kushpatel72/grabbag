@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120404011931) do
+ActiveRecord::Schema.define(:version => 20120404213433) do
+
+  create_table "transactions", :force => true do |t|
+    t.integer  "buyer_id"
+    t.integer  "seller_id"
+    t.integer  "button_amount"
+    t.datetime "date"
+    t.string   "type"
+    t.integer  "bag_id"
+    t.text     "feeback"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

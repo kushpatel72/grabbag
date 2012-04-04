@@ -1,4 +1,7 @@
-class ProfilesController < ApplicationController
+class CompanyTransactionsController < ApplicationController
+  def new
+  end
+
   def create
   end
 
@@ -9,6 +12,9 @@ class ProfilesController < ApplicationController
   end
 
   def show
+  end
+
+  def index
   end
 
   def destroy
