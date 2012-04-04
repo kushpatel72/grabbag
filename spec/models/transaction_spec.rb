@@ -2,9 +2,12 @@ require 'spec_helper'
 
 describe Transaction do
   
+  let(:user) { FactoryGirl.create(:user) }
   before do
-    @transaction = Transaction.new(:buyer_id => 2, :seller_id => 1, 
-                                   :button_amount => 20, :date => Time.now)
+    @transaction = user.transactions.new(:buyer_id => 2, 
+                                         :seller_id => 1, 
+                                         :button_amount => 20, 
+                                         :date => Time.now)
   end
   
   subject { @transaction }
@@ -16,6 +19,7 @@ describe Transaction do
     it { @transaction.should_not be_valid }
   end
   
-  # it "Company transaction should have 1 as the seller_id"
+  describe "accessible attributes" do
+  end
   
 end

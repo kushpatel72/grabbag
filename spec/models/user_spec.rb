@@ -28,8 +28,12 @@ describe User do
     it { @user.should_not be_valid }
   end
   
-  # describe "accessible attributes" do
-  #     it "should not allow access to buckle_count"
-  #   end  
-  
+  describe "accessible attributes" do
+    it "should not allow access to buckle_count" do
+      expect do
+        User.new(:button_count => 50)
+      end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
+    end
+  end  
+
 end
