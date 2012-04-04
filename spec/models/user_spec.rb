@@ -28,4 +28,8 @@ describe User do
     it { @user.should_not be_valid }
   end
   
+  # describe "accessible attributes" do
+  #     it "should not allow access to buckle_count"
+  #   end  
+  
 end
