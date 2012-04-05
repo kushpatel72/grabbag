@@ -113,6 +113,8 @@ GEM
       mime-types
     pg (0.12.2)
     polyglot (0.3.3)
+    pony (1.4)
+      mail (> 2.0)
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -200,6 +202,7 @@ DEPENDENCIES
   omniauth-facebook (~> 1.2.0)
   paperclip (~> 3.0.1)
   pg (= 0.12.2)
+  pony
   rails (= 3.2.3)
   rspec-rails (~> 2.8.rc)
   sass-rails (= 3.2.4)
