@@ -1,10 +1,26 @@
+# == Schema Information
+#
+# Table name: transactions
+#
+#  id            :integer         not null, primary key
+#  buyer_id      :integer
+#  seller_id     :integer
+#  button_amount :integer
+#  date          :datetime
+#  type          :string(255)
+#  bag_id        :integer
+#  feeback       :text
+#  created_at    :datetime        not null
+#  updated_at    :datetime        not null
+#
+
 require 'spec_helper'
 
 describe Transaction do
   
   let(:user) { FactoryGirl.create(:user) }
   before do
-    @transaction = user.transactions.new(:buyer_id => 2, 
+    @transaction = user.transactions.new(:buyer_id => user.id, 
                                          :seller_id => 1, 
                                          :button_amount => 20, 
                                          :date => Time.now)
