@@ -34,5 +34,7 @@ class User < ActiveRecord::Base
   
   validates_length_of :first_name, :maximum => 50
   validates_length_of :last_name, :maximum => 50
+  
+  
     
 end

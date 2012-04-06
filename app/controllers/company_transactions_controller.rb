@@ -1,5 +1,6 @@
 class CompanyTransactionsController < ApplicationController
   def new
+    
   end
 
   def create

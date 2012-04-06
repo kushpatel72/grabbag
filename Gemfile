@@ -7,6 +7,7 @@ gem "omniauth-facebook", "~> 1.2.0"
 gem "paperclip", "~> 3.0.1"
 gem "thin", "~> 1.3.1"
 gem "pony"
+gem "mailcatcher", "~> 0.5.6"
 
 group :development do
   gem 'sqlite3', '1.3.5'

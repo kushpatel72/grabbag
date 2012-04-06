@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120404223906) do
+ActiveRecord::Schema.define(:version => 20120405210604) do
 
   create_table "transactions", :force => true do |t|
     t.integer  "buyer_id"
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(:version => 20120404223906) do
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "button_count"
+    t.boolean  "database_authenticable"
+    t.boolean  "confirmable"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
