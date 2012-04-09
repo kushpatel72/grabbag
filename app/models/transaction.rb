@@ -9,13 +9,13 @@
 #  date          :datetime
 #  type          :string(255)
 #  bag_id        :integer
-#  feeback       :text
+#  feedback       :text
 #  created_at    :datetime        not null
 #  updated_at    :datetime        not null
 #
 
 class Transaction < ActiveRecord::Base
-  attr_accessible :bag_id, :button_amount, :date, :feeback, :type
+  attr_accessible :bag_id, :button_amount, :date, :feedback, :type
 
   belongs_to :buyer, :class_name => 'User'
   belongs_to :seller, :class_name => 'User'

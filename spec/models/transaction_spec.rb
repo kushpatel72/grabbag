@@ -9,7 +9,7 @@
 #  date          :datetime
 #  type          :string(255)
 #  bag_id        :integer
-#  feeback       :text
+#  feedback       :text
 #  created_at    :datetime        not null
 #  updated_at    :datetime        not null
 #

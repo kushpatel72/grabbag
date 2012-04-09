@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120405210604) do
+ActiveRecord::Schema.define(:version => 20120409222821) do
 
   create_table "transactions", :force => true do |t|
     t.integer  "buyer_id"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(:version => 20120405210604) do
     t.datetime "date"
     t.string   "type"
     t.integer  "bag_id"
-    t.text     "feeback"
+    t.text     "feedback"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end

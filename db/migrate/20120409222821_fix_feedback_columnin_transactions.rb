@@ -1,5 +1,5 @@
 class FixFeedbackColumninTransactions < ActiveRecord::Migration
   def change
-    rename_column :transactions :feeback, :feedback
+    rename_column :transactions, :feeback, :feedback
   end
 end
