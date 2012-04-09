@@ -49,4 +49,20 @@ describe Transaction do
     it { @transaction.should_not be_valid }
   end
   
+  describe "accessible attributes" do
+    it "should not allow access to seller_id" do
+      expect do
+        Transaction.new(:seller_id => seller.id)
+      end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
+    end
+    
+    it "should not allow access to buyer_id" do
+      expect do
+        Transaction.new(:buyer_id => buyer.id)
+      end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
+    end
+  end
+  
+  
+  
 end
