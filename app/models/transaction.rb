@@ -15,8 +15,11 @@
 #
 
 class Transaction < ActiveRecord::Base
-  attr_accessible :bag_id, :button_amount, :date, :feeback, :seller_id, :type
+  attr_accessible :bag_id, :button_amount, :date, :feeback, :type
 
+  belongs_to :buyer, :class_name => 'User'
+  belongs_to :seller, :class_name => 'User'
   
   validates_presence_of :buyer_id
+  validates_presence_of :seller_id
 end

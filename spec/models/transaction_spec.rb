@@ -18,12 +18,21 @@ require 'spec_helper'
 
 describe Transaction do
   
-  let(:user) { FactoryGirl.create(:user) }
+  let(:buyer) { FactoryGirl.create(:user) }
+  let(:seller) { FactoryGirl.create(:user) }
+  
+  it "should let one create a transaction through the seller" do
+    @sale = seller.sales.new(:button_amount => 20,
+                             :date => Time.now)
+    
+    @sale.buyer = buyer
+    @sale.should be_valid
+  end
+  
   before do
-    @transaction = user.transactions.new(:buyer_id => user.id, 
-                                         :seller_id => 1, 
-                                         :button_amount => 20, 
-                                         :date => Time.now)
+    @transaction = buyer.purchases.new(:button_amount => 20, 
+                                       :date => Time.now)
+    @transaction.seller = seller                                  
   end
   
   subject { @transaction }
@@ -31,11 +40,13 @@ describe Transaction do
   it { should be_valid }
   
   describe "when buyer_id is not present" do
-    before { @transaction.buyer_id = nil }
+    before { @transaction.buyer = nil }
     it { @transaction.should_not be_valid }
   end
   
-  describe "accessible attributes" do
+  describe "when seller_id is not present" do
+    before { @transaction.seller = nil }
+    it { @transaction.should_not be_valid }
   end
   
 end
