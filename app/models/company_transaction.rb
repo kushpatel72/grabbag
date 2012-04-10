@@ -1,0 +1,2 @@
+class CompanyTransaction < Transaction
+end

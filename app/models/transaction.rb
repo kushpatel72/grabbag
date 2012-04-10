@@ -9,7 +9,7 @@
 #  date          :datetime
 #  type          :string(255)
 #  bag_id        :integer
-#  feedback       :text
+#  feedback      :text
 #  created_at    :datetime        not null
 #  updated_at    :datetime        not null
 #
@@ -22,4 +22,5 @@ class Transaction < ActiveRecord::Base
   
   validates_presence_of :buyer_id
   validates_presence_of :seller_id
+  validates_presence_of :date
 end

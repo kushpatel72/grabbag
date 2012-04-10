@@ -9,7 +9,7 @@
 #  date          :datetime
 #  type          :string(255)
 #  bag_id        :integer
-#  feedback       :text
+#  feedback      :text
 #  created_at    :datetime        not null
 #  updated_at    :datetime        not null
 #
@@ -21,13 +21,16 @@ describe Transaction do
   let(:buyer) { FactoryGirl.create(:user) }
   let(:seller) { FactoryGirl.create(:user) }
   
-  it "should let one create a transaction through the seller" do
-    @sale = seller.sales.new(:button_amount => 20,
-                             :date => Time.now)
-    
-    @sale.buyer = buyer
-    @sale.should be_valid
-  end
+  # I don't think we ever need to do stuff through the seller
+  # 
+  # 
+  # it "should let one create a transaction through the seller" do
+  #   @sale = seller.sales.new(:button_amount => 20,
+  #                            :date => Time.now)
+  #   
+  #   @sale.buyer = buyer
+  #   @sale.should be_valid
+  # end
   
   before do
     @transaction = buyer.purchases.new(:button_amount => 20, 
@@ -46,6 +49,11 @@ describe Transaction do
   
   describe "when seller_id is not present" do
     before { @transaction.seller = nil }
+    it { @transaction.should_not be_valid }
+  end
+  
+  describe "when date is not present" do
+    before { @transaction.date = nil }
     it { @transaction.should_not be_valid }
   end
   
