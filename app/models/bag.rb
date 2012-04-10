@@ -18,4 +18,14 @@
 
 class Bag < ActiveRecord::Base
   attr_accessible :approved, :brand, :button_cost, :color, :condition, :description, :price_paid, :size, :user_id
+  
+  belongs_to :user
+  
+  validates_presence_of :user
+  validates_presence_of :color
+  validates_presence_of :brand
+  validates_presence_of :condition
+  validates_presence_of :size
+  validates_presence_of :price_paid
+  validates_presence_of :button_cost
 end
