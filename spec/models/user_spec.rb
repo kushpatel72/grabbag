@@ -18,6 +18,8 @@
 #  first_name             :string(255)
 #  last_name              :string(255)
 #  button_count           :integer
+#  database_authenticable :boolean
+#  confirmable            :boolean
 #
 
 require 'spec_helper'
