@@ -30,6 +30,22 @@ describe Bag do
   
   it { should be_valid }
   # it { should be_approved }
+  
+  # describe "attribute presence" do
+  #   
+  #   REQUIRED_ITEMS = %w(user_id=, color=)
+  #   
+  #   REQUIRED_ITEMS.each do |req|
+  #     
+  #     it "when #{req} is not present" do
+  #       puts @bag.inspect
+  #       @bag.send(req.to_sym, nil)
+  #       @bag.should_not be_valid
+  #     end  
+  #     
+  #   end
+  #   
+  # end
 
   describe "when user_id is not present" do
     before { @bag.user_id = nil }
