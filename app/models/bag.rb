@@ -5,9 +5,9 @@
 #  id          :integer         not null, primary key
 #  user_id     :integer
 #  approved    :boolean
-#  color       :string(255)
+#  color       :integer(255)
 #  description :text
-#  brand       :string(255)
+#  brand       :integer(255)
 #  condition   :integer
 #  size        :integer
 #  price_paid  :integer
@@ -20,7 +20,7 @@ class Bag < ActiveRecord::Base
   attr_accessible :brand, :button_cost, :color, :condition, :description, :price_paid, :size
   
   belongs_to :user
-  
+    
   validates_presence_of :user
   validates_presence_of :color
   validates_presence_of :brand

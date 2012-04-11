@@ -5,9 +5,9 @@
 #  id          :integer         not null, primary key
 #  user_id     :integer
 #  approved    :boolean
-#  color       :string(255)
+#  color       :integer(255)
 #  description :text
-#  brand       :string(255)
+#  brand       :integer(255)
 #  condition   :integer
 #  size        :integer
 #  price_paid  :integer
@@ -31,45 +31,20 @@ describe Bag do
   it { should be_valid }
   # it { should be_approved }
   
-  # describe "attribute presence" do
-  #   
-  #   REQUIRED_ITEMS = %w(user_id=, color=)
-  #   
-  #   REQUIRED_ITEMS.each do |req|
-  #     
-  #     it "when #{req} is not present" do
-  #       puts @bag.inspect
-  #       @bag.send(req.to_sym, nil)
-  #       @bag.should_not be_valid
-  #     end  
-  #     
-  #   end
-  #   
-  # end
-
-  describe "when user_id is not present" do
-    before { @bag.user_id = nil }
-    it { should_not be_valid }
-  end
-  
-  describe "when color is not present" do
-    before { @bag.color = nil }
-    it { should_not be_valid }
-  end
-
-  describe "when brand is not present" do
-    before { @bag.brand = nil }
-    it { should_not be_valid }
-  end
-
-  describe "when condition is not present" do
-    before { @bag.condition = nil }
-    it { should_not be_valid }
-  end
-
-  describe "when size is not present" do
-    before { @bag.size = nil }
-    it { should_not be_valid }
+  describe "attribute presence" do
+    
+    REQUIRED_ITEMS = [:user_id=, :color=, :brand=, :condition=, 
+                      :size=, :price_paid=, :button_cost=]
+    
+    REQUIRED_ITEMS.each do |req|
+      
+      it "when #{req} is not present" do
+        @bag.send(req, nil)
+        @bag.should_not be_valid
+      end  
+      
+    end
+    
   end
   
   describe "when size is not either 1(sm), 2(med) or 3(lg)" do
@@ -82,16 +57,6 @@ describe Bag do
       @bag.size = 4
       @bag.should_not be_valid
     end
-  end
-
-  describe "when brand is not present" do
-    before { @bag.price_paid = nil }
-    it { should_not be_valid }
-  end
-
-  describe "when condition is not present" do
-    before { @bag.button_cost = nil }
-    it { should_not be_valid }
   end
   
   describe "accessible attributes" do
