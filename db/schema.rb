@@ -11,20 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120410011840) do
+ActiveRecord::Schema.define(:version => 20120411191857) do
 
   create_table "bags", :force => true do |t|
     t.integer  "user_id"
     t.boolean  "approved"
-    t.string   "color"
+    t.integer  "color",       :limit => 255
     t.text     "description"
-    t.string   "brand"
+    t.integer  "brand",       :limit => 255
     t.integer  "condition"
     t.integer  "size"
     t.integer  "price_paid"
     t.integer  "button_cost"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   add_index "bags", ["user_id"], :name => "index_bags_on_user_id"

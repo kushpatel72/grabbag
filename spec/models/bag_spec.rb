@@ -23,7 +23,7 @@ describe Bag do
   let(:owner) { FactoryGirl.create(:user) }
 
   before do
-    @bag = owner.bags.new(:color => "blue", :brand => "Coach", :condition => '2', :size => '2', :price_paid => '50', :button_cost => '20')
+    @bag = owner.bags.new(:color => '5', :brand => '4', :condition => '2', :size => '2', :price_paid => '50', :button_cost => '20')
   end
   
   subject { @bag }
