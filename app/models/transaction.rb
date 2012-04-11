@@ -15,7 +15,7 @@
 #
 
 class Transaction < ActiveRecord::Base
-  attr_accessible :bag_id, :button_amount, :date, :feedback, :type
+  attr_accessible :button_amount, :date, :feedback, :type
 
   belongs_to :buyer, :class_name => 'User'
   belongs_to :seller, :class_name => 'User'

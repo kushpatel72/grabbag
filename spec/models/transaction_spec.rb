@@ -69,6 +69,12 @@ describe Transaction do
         Transaction.new(:buyer_id => buyer.id)
       end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end
+    
+    it "should not allow access to bag_id" do
+      expect do
+        Transaction.new(:bag_id => 1)
+      end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
+    end
   end
   
 end

@@ -23,11 +23,11 @@ describe UserTransaction do
   
   before do
     @handbag_purchase = buyer.handbag_purchases.new(:button_amount => 20,
-                                                     :date => Time.now,
-                                                     :feedback => "Joe Blow was nice, but is that enough?",
-                                                     :bag_id => 4)
+                                                    :date => Time.now,
+                                                    :feedback => "Joe Blow was nice, but is that enough?")
 
-    @handbag_purchase.seller = seller                                 
+    @handbag_purchase.seller = seller
+    @handbag_purchase.bag_id = 1                                 
   end
   
   subject { @handbag_purchase } 
