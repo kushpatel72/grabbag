@@ -55,6 +55,18 @@ describe Bag do
     before { @bag.size = nil }
     it { should_not be_valid }
   end
+  
+  describe "when size is not either 1(sm), 2(med) or 3(lg)" do
+    it "when size is 0" do
+      @bag.size = 0
+      @bag.should_not be_valid
+    end
+    
+    it "when size is 4" do
+      @bag.size = 4
+      @bag.should_not be_valid
+    end
+  end
 
   describe "when brand is not present" do
     before { @bag.price_paid = nil }
@@ -64,6 +76,20 @@ describe Bag do
   describe "when condition is not present" do
     before { @bag.button_cost = nil }
     it { should_not be_valid }
+  end
+  
+  describe "accessible attributes" do
+    it "should not allow access to user_id" do
+      expect do
+        Bag.new(:user_id => 1)
+      end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
+    end
+    
+    it "should not allow access to approved" do
+      expect do
+        Bag.new(:approved => false)
+      end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
+    end
   end
 
 

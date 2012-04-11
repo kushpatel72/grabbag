@@ -17,7 +17,7 @@
 #
 
 class Bag < ActiveRecord::Base
-  attr_accessible :approved, :brand, :button_cost, :color, :condition, :description, :price_paid, :size, :user_id
+  attr_accessible :brand, :button_cost, :color, :condition, :description, :price_paid, :size
   
   belongs_to :user
   
@@ -28,4 +28,6 @@ class Bag < ActiveRecord::Base
   validates_presence_of :size
   validates_presence_of :price_paid
   validates_presence_of :button_cost
+  
+  validates_inclusion_of :size, :in => 1..3
 end
