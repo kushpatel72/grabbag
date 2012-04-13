@@ -34,16 +34,21 @@ describe User do
  
   it { should be_valid }
   
-  describe "when first_name is not present" do
-    before { @user.first_name = " " }
-    it { should_not be_valid }
+  describe "attribute presence" do
+    
+    REQUIRED_ITEMS = [:first_name=, :last_name=]
+    
+    REQUIRED_ITEMS.each do |req|
+      
+      it "when #{req} is not present" do
+        @user.send(req, " ")
+        @user.should_not be_valid
+      end  
+      
+    end
+    
   end
-  
-  describe "when last_name is not present" do
-    before { @user.last_name = " " }
-    it { should_not be_valid }
-  end
-  
+    
   describe "when first_name is too long" do
     before { @user.first_name = "a" * 51 }
     it { should_not be_valid }

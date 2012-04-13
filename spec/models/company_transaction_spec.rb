@@ -29,14 +29,4 @@ describe CompanyTransaction do
   
   it { should be_valid }
   
-  # describe "when feedback is not present" do
-  #   before { @handbag_purchase.feedback = nil }
-  #   it { @handbag_purchase.should_not be_valid }
-  # end
-  # 
-  # describe "when bag_id is not present" do
-  #   before { @handbag_purchase.bag_id = nil }
-  #   it { @handbag_purchase.should_not be_valid }
-  # end
-  
 end

@@ -42,19 +42,19 @@ describe Transaction do
   
   it { should be_valid }
   
-  describe "when buyer_id is not present" do
-    before { @transaction.buyer = nil }
-    it { @transaction.should_not be_valid }
-  end
-  
-  describe "when seller_id is not present" do
-    before { @transaction.seller = nil }
-    it { @transaction.should_not be_valid }
-  end
-  
-  describe "when date is not present" do
-    before { @transaction.date = nil }
-    it { @transaction.should_not be_valid }
+  describe "attribute presence" do
+    
+    REQUIRED_ITEMS = [:buyer=, :seller=, :date=]
+    
+    REQUIRED_ITEMS.each do |req|
+      
+      it "when #{req} is not present" do
+        @transaction.send(req, nil)
+        @transaction.should_not be_valid
+      end  
+      
+    end
+    
   end
   
   describe "accessible attributes" do
