@@ -36,9 +36,9 @@ describe User do
   
   describe "attribute presence" do
     
-    REQUIRED_ITEMS = [:first_name=, :last_name=]
+    REQUIRED_USER_METHODS = [:first_name=, :last_name=]
     
-    REQUIRED_ITEMS.each do |req|
+    REQUIRED_USER_METHODS.each do |req|
       
       it "when #{req} is not present" do
         @user.send(req, " ")
