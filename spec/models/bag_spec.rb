@@ -33,10 +33,10 @@ describe Bag do
   
   describe "attribute presence" do
     
-    REQUIRED_ITEMS = [:user_id=, :color=, :brand=, :condition=, 
+    REQUIRED_BAG_METHODS = [:user_id=, :color=, :brand=, :condition=, 
                       :size=, :price_paid=, :button_cost=]
     
-    REQUIRED_ITEMS.each do |req|
+    REQUIRED_BAG_METHODS.each do |req|
       
       it "when #{req} is not present" do
         @bag.send(req, nil)

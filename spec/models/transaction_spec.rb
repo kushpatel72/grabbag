@@ -44,9 +44,9 @@ describe Transaction do
   
   describe "attribute presence" do
     
-    REQUIRED_ITEMS = [:buyer=, :seller=, :date=]
+    REQUIRED_TRANSACTION_METHODS = [:buyer=, :seller=, :date=]
     
-    REQUIRED_ITEMS.each do |req|
+    REQUIRED_TRANSACTION_METHODS.each do |req|
       
       it "when #{req} is not present" do
         @transaction.send(req, nil)
